@@ -2,6 +2,8 @@ import React from 'react'
 import RepoList from './repo-list'
 import RepoBtns from './repo-btns'
 
+import '../../sass/repo-app.scss'
+
 const apiUrl = 'https://api.github.com/search/repositories?q=language:javascript&sort=stars&order=desc&per_page=5';
 
 export default class RepoApp extends React.Component {

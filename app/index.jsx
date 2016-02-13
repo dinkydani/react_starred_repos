@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import RepoApp from './components/repo-app.jsx'
+import RepoApp from './js/components/repo-app.jsx'
 
 ReactDOM.render(
   <RepoApp />,

@@ -1,33 +1,33 @@
-// By default, React will be in development mode, which is slower, and not advised for production.
-// To use React in production mode, set the environment variable NODE_ENV to production
-// new webpack.DefinePlugin({
-//   'process.env': {
-//     // NODE_ENV: JSON.stringify('production')
-//   }
-// });
-
 module.exports = {
   entry: './app/index.jsx',
   output: {
     filename: 'bundle.js', // this is the default name, so you can skip it
     // at this directory our bundle file will be available
     // make sure port 8090 is used when launching webpack-dev-server
-    publicPath: 'http://localhost:8090/assets'
+    publicPath: 'http://localhost:8090/assets',
+    path: './build'
   },
   module: {
     loaders: [
-      // {
-      //   test: /\.css$/,
-      //   loaders: ['style', 'css']
-      //   // include: PATHS.app
-      // },
+      // JSX
       {
         test: /\.jsx$/,
         exclude: /(node_modules)/,
         loader: 'babel'
-        // query: {
-        //   presets: ['react', 'es2015']
-        // }
+      },
+      // Font Awesome
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&minetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
+      },
+      // SASS
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
       }
     ]
   },
