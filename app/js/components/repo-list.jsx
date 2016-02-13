@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import RepoItem from './repo-item'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
+import '../../sass/repo-list.scss'
 
 export default class RepoList extends React.Component {
-  componentDidUpdate() {
-    let list = ReactDOM.findDOMNode(this);
-    document.body.scrollTop = list.scrollTop;
-  }
   render() {
     let repoItems = this.props.repos.map(repo => {
       return (
@@ -15,7 +14,9 @@ export default class RepoList extends React.Component {
     })
     return (
       <div className='repo__list'>
-        {repoItems}
+        <ReactCSSTransitionGroup transitionName="repo__list" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+          {repoItems}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }

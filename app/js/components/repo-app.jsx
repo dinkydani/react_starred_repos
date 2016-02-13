@@ -19,12 +19,15 @@ export default class RepoApp extends React.Component {
     fetch(url)
       .then(d => {
         d.json().then(d => {
-          this.setState({repos: d.items});
+          this.setState({repos: d.items}, ()  => this.scrollTop());
         })
       })
       .catch(err => {
         console.error(this.props.url, err)
       });
+  }
+  scrollTop() {
+    document.body.scrollTop = 0
   }
   componentDidMount() {
     this.getCurrentPageRepos(this.state.page)
