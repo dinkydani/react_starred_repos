@@ -6,7 +6,6 @@ $borderColoursLength: length($borderColours);
   border-radius: 3px;
   margin-bottom: 20px;
   padding: 20px;
-  width: 100%;
 
   @for $i from 1 through $borderColoursLength {
     &:nth-of-type(#{$borderColoursLength}n+#{$i}) {
